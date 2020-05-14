@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Question 1</title>
+    <script type="text/javascript">
+$(function(){
+$('button').bind( 'click', function() {
+if($(this).hasClass("true")){
+            $.ajax({
+                 type: "GET",
+                    url: "http://www.localhost:8080/update_amount"
+                  });
+            }
+     top.location.href = 'http://www.localhost:8080/question2';
+  });
+});
+    </script>
+</head>
+
+<body>
+<p>Question 1. Please choose correct option</p>
+<br>
+<div>
+    <button class="true">Вариант 1</button>
+    <button class="false">Вариант 2</button>
+    <button class="false">Вариант 3</button>
+    <button class="false">Вариант 4</button>
+</div>
+</body>
+
+</html>

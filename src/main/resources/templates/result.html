@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>text demo</title>
+    <script>
+ $.ajax({
+      url: 'http://www.localhost:8080/get_amount',
+      type: 'GET',
+      dataType: 'json',
+      success: function(json){
+      $( "span" ).text(json);
+      }
+ });
+</script>
+</head>
+
+<body>
+<div>Your result is: <span>Test Paragraph.</span>/5. Congrats</div>
+</body>
+</html>

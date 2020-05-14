@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+
+<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+
+<!--!!! Не работает картинка !!!-->
+<img src="corgi.jpg" alt="image1">
+<img src="/templates/images/corgi.jpg" alt="image2">
+<img src='<spring:url value="resources/templates/images/corgi.jpg" />' alt="image2">
+<img src='<spring:url value="/templates/images/corgi.jpg" />' alt="image2">
+<img src='<spring:url value="/images/corgi.jpg" />' alt="image2">
+
+</body>
+</html>
