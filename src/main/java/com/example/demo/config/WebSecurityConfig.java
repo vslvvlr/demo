@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-
 import javax.sql.DataSource;
 
 @Configuration
@@ -24,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
+                    .authorizeRequests()
                     .antMatchers("/", "/home", "/registration").permitAll()
                     .anyRequest().authenticated()
                 .and()
@@ -36,7 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                     .cors();
-
     }
 
     @Override
@@ -63,7 +61,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-
 
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,20 +8,23 @@
     <title>Question 1</title>
     <script type="text/javascript">
 $(function(){
-$('button').bind( 'click', function() {
-if($(this).hasClass("true")){
+    $('button').bind( 'click', function(xhr) {
+        if($(this).hasClass("true")){
+        var token1 = $('input#csrf-token').attr("content");
             $.ajax({
-                 type: "GET",
-                    url: "http://www.localhost:8080/update_amount"
-                  });
-            }
-     top.location.href = 'http://www.localhost:8080/question2';
-  });
+                 type: "PUT",
+                  url: "http://www.localhost:8080/amount",
+                  beforeSend: function (request) { request.setRequestHeader("X-CSRF-TOKEN", token1);},
+                });
+            };
+        top.location.href = 'http://www.localhost:8080/question2';
+    });
 });
     </script>
 </head>
 
 <body>
+<input type="hidden" id="csrf-token" th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
 <p>Question 1. Please choose correct option</p>
 <br>
 <div>
